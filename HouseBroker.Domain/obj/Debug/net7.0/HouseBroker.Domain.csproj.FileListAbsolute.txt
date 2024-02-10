@@ -1,0 +1,28 @@
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.deps.json
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.runtimeconfig.json
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.pdb
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.csproj.AssemblyReference.cache
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.AssemblyInfoInputs.cache
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.AssemblyInfo.cs
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\refint\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.pdb
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.genruntimeconfig.cache
+C:\Users\Jagdish Pandey\Desktop\House Broker\HouseBroker.Presentation\HouseBroker.Domain\obj\Debug\net7.0\ref\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.deps.json
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.runtimeconfig.json
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\bin\Debug\net7.0\HouseBroker.Domain.pdb
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.csproj.AssemblyReference.cache
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.AssemblyInfoInputs.cache
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.AssemblyInfo.cs
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\refint\HouseBroker.Domain.dll
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.pdb
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.genruntimeconfig.cache
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\ref\HouseBroker.Domain.dll

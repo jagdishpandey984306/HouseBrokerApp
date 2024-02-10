@@ -1,0 +1,31 @@
+﻿@using HouseBroker.Domain.Entities;
+@using Microsoft.AspNetCore.Identity;
+
+@inject SignInManager<ApplicationUser> signInManager
+
+<ul class="navbar-nav">
+    @if (signInManager.IsSignedIn(User))
+    {
+        <li class="nav-item dropdown">
+            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome! @User.Identity!.Name
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li>
+                    <a class="dropdown-item" asp-action="Logout" asp-controller="Account">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+    }
+</ul>

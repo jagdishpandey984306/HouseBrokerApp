@@ -1,0 +1,72 @@
+﻿@using HouseBroker.Application.Dtos.Property;
+
+@model PropertyDto
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Property" : "Update Property";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-4 card p-3">
+        <h2 class="text-center text-info">@(Model.Id == 0 ? "Create Property" : "Update Property")</h2>
+        <form asp-controller="Property" asp-action="CreateOrUpdate" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="PropertyName" class="control-label"></label>
+                <input asp-for="PropertyName" class="form-control" />
+                <span asp-validation-for="PropertyName" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="PropertyType" class="control-label"></label>
+                <select asp-for="PropertyType" class="form-control">
+                    <option value="">Choose</option>
+                    <option value="Residental">Residental</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+                <span asp-validation-for="PropertyType" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="Contact" class="control-label"></label>
+                <input asp-for="Contact" class="form-control" />
+                <span asp-validation-for="Contact" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="Location" class="control-label"></label>
+                <textarea asp-for="Location" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+             <div class="mb-1">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="Features" class="control-label"></label>
+                <textarea asp-for="Features" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="Features" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4">
+                    <input type="submit" value="@(Model.Id == 0 ? "Create" : "Update")" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

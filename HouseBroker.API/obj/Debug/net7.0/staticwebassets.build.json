@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Voe+N4VCbsK5gi95bfihmG9cq7hXKaDZAGTppwGijPE=",
+  "Source": "HouseBroker.API",
+  "BasePath": "_content/HouseBroker.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,38 @@
+﻿@using HouseBroker.Application.Dtos.Property;
+
+@model List<PropertyViewModel>
+
+@if (Model.Count > 0)
+{
+    <div class="row row-margin-bottom">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 no-padding lib-item" data-category="ui">
+                <div class="lib-panel">
+                    <div class="row box-shadow">
+                        <div class="col-md-6">
+                            <img class="lib-img img-thumbnail" src="@item.ImagePath">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="lib-row lib-header">
+                                @item.PropertyName<br />
+                                @item.Contact
+                                <div class="lib-header-seperator"></div>
+                            </div>
+                            <div class="lib-row lib-desc">
+                                @item.Description
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <center class="mt-4 mb-4">
+        <b class="alert alert-info">The result you are searching is not found</b>
+    </center>
+}
+

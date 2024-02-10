@@ -1,0 +1,15 @@
+﻿@using HouseBroker.Application.Dtos.Property;
+
+@model List<PropertyViewModel>
+@{
+    ViewData["Title"] = "List";
+}
+
+<a class="btn btn-success mb-2" asp-controller="Property" asp-action="Create">Create New</a>
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-12 card p-3">
+        <h2 class="text-center text-info">Property List</h2>
+        @await Html.PartialAsync("_ListPartial", Model);
+    </div>
+</div>
+

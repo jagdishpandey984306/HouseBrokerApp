@@ -1,0 +1,86 @@
+﻿@using HouseBroker.Application.Dtos.Property;
+@using HouseBroker.Application.Interfaces;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model PropertySearch
+@inject IPropertyService _propertyService
+
+<div class="row d-flex align-items-center justify-content-center">
+    <h2>Find the Property</h2>
+    <hr />
+    <form class="form-inline">
+        <div class="row">
+            <div class="form-group col-md-4 mb-4">
+                <label class="text-left">Location</label>
+                <input class="form-control" asp-for="location" type="text" placeholder="Eg: Kathmandu">
+            </div>
+
+            <div class="form-group col-md-2 mb-4">
+                <label>Min Price</label>
+                <input class="form-control" asp-for="minPrice" type="number" placeholder="Eg: 100000">
+            </div>
+
+            <div class="form-group col-md-2 mb-4">
+                <label>Max Price</label>
+                <input class="form-control" asp-for="maxPrice" type="number" placeholder="Eg: 500000">
+            </div>
+
+            <div class="form-group col-md-2 mb-4">
+                <label>Property Type</label>
+                <select class="form-control" asp-for="propertyType">
+                    <option value="">Choose</option>
+                    <option value="Residental">Residental</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-2 mb-4 mt-4">
+                <button type="button" id="searchButton" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+    <hr/>
+
+    <h2 class="mt-4">Property you are search for:</h2>
+
+    <div id="searchResultContainer">
+        @await Html.PartialAsync("_SearchResultViewPartial",await _propertyService.PropertySearchAsync(new PropertySearch()))
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(document).ajaxSend(function () {
+                $("#overlay").fadeIn(300);
+            });
+
+            $('#searchButton').click(function (e) {
+                e.preventDefault();
+                searchResult();
+            });
+
+            function searchResult() {
+                $('#searchResultContainer').html('');
+                var parameter = {
+                    location: $('#location').val(),
+                    minPrice: $('#minPrice').val(),
+                    maxPrice: $('#maxPrice').val(),
+                    propertyType: $('#propertyType').val(),
+                };
+                $.get('/Property/SearchProperty', parameter)
+                    .done(function (data) {
+                        setTimeout(function () {
+                            $("#overlay").fadeOut(300);
+                        }, 500);
+                        $('#searchResultContainer').html(data);
+                    })
+                    .fail(function (xhr, status, error) {
+                        console.error('Error:', error);
+                    });
+            }
+        });
+    </script>
+}
