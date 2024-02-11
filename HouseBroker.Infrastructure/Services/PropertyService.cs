@@ -126,7 +126,8 @@ namespace HouseBroker.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// it return the list of property
+        ///  return the list of property 
+        ///  return list with page and pagesize
         /// </summary>
         /// <param name="page">pass page as parameter</param>
         /// <param name="pageSize">pass pagesize as parameter</param>
