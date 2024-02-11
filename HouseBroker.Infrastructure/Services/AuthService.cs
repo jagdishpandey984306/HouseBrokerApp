@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
@@ -25,6 +26,7 @@ namespace HouseBroker.Infrastructure.Services
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContext;
+        private readonly ILogger<AuthService> _log;
         #endregion
 
         #region Ctor
@@ -32,20 +34,25 @@ namespace HouseBroker.Infrastructure.Services
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration,
             SignInManager<ApplicationUser> signInManager,
-            IHttpContextAccessor httpContext)
+            IHttpContextAccessor httpContext,
+            ILogger<AuthService> log)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
             _signInManager = signInManager;
             _httpContext = httpContext;
+            _log = log;
         }
         #endregion
 
         #region Methods
 
         /// <summary>
-        /// login the user
+        /// find the user by username
+        /// if exists return null
+        /// check password and if incorrect return null
+        /// generate token,get user role and return user details after login successfully
         /// </summary>
         /// <param name="loginDto"></param>
         /// <returns></returns>
@@ -54,6 +61,7 @@ namespace HouseBroker.Infrastructure.Services
             // Find user with username
             var user = await _userManager.FindByNameAsync(loginDto.UserName);
             if (user is null)
+                _log.LogInformation("user is null");
                 return null;
 
             // check password of user
@@ -63,6 +71,7 @@ namespace HouseBroker.Infrastructure.Services
 
             // Return Token and userInfo to front-end
             var newToken = await GenerateJWTTokenAsync(user);
+            _log.LogInformation($"token generated{newToken}");
             var roles = await _userManager.GetRolesAsync(user);
             var userInfo = GenerateUserInfoObject(user, roles);
 
@@ -74,7 +83,10 @@ namespace HouseBroker.Infrastructure.Services
         }
 
         /// <summary>
-        /// register the user
+        /// find the user by username
+        /// check user if exists or not 
+        /// create user if user is not exists and if exists return user
+        /// add role with userid in userroles table
         /// </summary>
         /// <param name="registerDto"></param>
         /// <returns></returns>
@@ -142,7 +154,8 @@ namespace HouseBroker.Infrastructure.Services
         }
 
         /// <summary>
-        /// seed roles
+        /// this service is used to seed roles  directly in database
+        /// check roles exists,if not exists saved roles into roles table 
         /// </summary>
         /// <returns></returns>
         public async Task<GeneralServiceResponseDto> SeedRolesAsync()
@@ -182,7 +195,11 @@ namespace HouseBroker.Infrastructure.Services
         #endregion
 
         #region Utilities
-        //GenerateJWTTokenAsync
+        /// <summary>
+        /// generate token,claims and return token
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private async Task<string> GenerateJWTTokenAsync(ApplicationUser user)
         {
             var userRoles = await _userManager.GetRolesAsync(user);
@@ -221,7 +238,12 @@ namespace HouseBroker.Infrastructure.Services
             return token;
         }
 
-        //Generate UserInfo Object
+       /// <summary>
+       /// return user details
+       /// </summary>
+       /// <param name="user"></param>
+       /// <param name="Roles"></param>
+       /// <returns></returns>
         private UserInfoResult GenerateUserInfoObject(ApplicationUser user, IEnumerable<string> Roles)
         {
             return new UserInfoResult()

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HouseBroker.Application.Dtos.Property;
+using HouseBroker.Application.Models;
 using HouseBroker.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace HouseBroker.Infrastructure.Helper
         {
             CreateMap<Property, PropertyDto>().ReverseMap();
             CreateMap<Property, PropertyViewModel>().ReverseMap();
+            CreateMap<PagedResult<Property>, PagedResult<PropertyViewModel>>().ReverseMap();
         }
     }
 }

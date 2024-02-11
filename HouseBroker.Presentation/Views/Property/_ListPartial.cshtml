@@ -1,5 +1,8 @@
 ﻿@using HouseBroker.Application.Dtos.Property;
-@model List<PropertyViewModel>
+@using HouseBroker.Application.Models;
+@using HouseBroker.Presentation.ViewComponents;
+
+@model PagedResult<PropertyViewModel>
 
 <table class="table table-bordered">
     <thead>
@@ -9,6 +12,7 @@
             <th>Name</th>
             <th>Type</th>
             <th>Contact</th>
+            <th>Location</th>
             <th>Price</th>
             <th>Features</th>
             <th>Description</th>
@@ -17,17 +21,20 @@
     </thead>
     <thead>
         @{
-            if (Model.Count > 0)
+            if (Model.Results.Count > 0)
             {
                 int i = 1;
-                foreach (var item in Model)
+                foreach (var item in Model.Results)
                 {
+                    var rowNo = (Model.CurrentPage - 1) * Model.PageSize + i;
+                    i++;
                     <tr>
-                        <td>@i</td>
+                        <td>@rowNo</td>
                         <td><img src="@item.ImagePath" class="img-thumbnail" height="60" width="60" /></td>
                         <td>@item.PropertyName </td>
                         <td>@item.PropertyType </td>
                         <td>@item.Contact </td>
+                        <td>@item.Location </td>
                         <td>@item.Price </td>
                         <td>@item.Features </td>
                         <td>@item.Description </td>
@@ -36,13 +43,12 @@
                             <a class="btn btn-sm btn-danger mr-2" asp-controller="Property" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
-                    i++;
                 }
             }
             else
             {
                 <tr>
-                    <td colspan="9">
+                    <td colspan="10">
                         <center>---------------data not found---------------</center>
                     </td>
                 </tr>
@@ -50,3 +56,5 @@
         }
     </thead>
 </table>
+
+@(await Component.InvokeAsync<PagerViewComponent>(Model))

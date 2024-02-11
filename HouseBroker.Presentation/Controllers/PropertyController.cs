@@ -29,9 +29,9 @@ namespace HouseBroker.Presentation.Controllers
         /// </summary>
         /// <returns></returns>
         [Authorize(Roles = "Broker")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var result = await _propertyService.ListPropertyAsync();
+            var result = await _propertyService.PropertyListAsync(page, 10);
             return View(result);
         }
 

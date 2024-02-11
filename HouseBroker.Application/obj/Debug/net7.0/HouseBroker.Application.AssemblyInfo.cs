@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HouseBroker.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd71a0e7fe40d58d6ffd03f2315e5306126c3952")]
 [assembly: System.Reflection.AssemblyProductAttribute("HouseBroker.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HouseBroker.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

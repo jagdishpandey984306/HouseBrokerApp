@@ -1,6 +1,7 @@
 ﻿using HouseBroker.Application.Dtos.Auth;
 using HouseBroker.Application.Dtos.General;
 using HouseBroker.Application.Dtos.Property;
+using HouseBroker.Application.Models;
 using HouseBroker.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,9 @@ namespace HouseBroker.Application.Interfaces
     {
         Task<GeneralServiceResponseDto> CreatePropertyAsync(PropertyDto propertyDto);
         Task<GeneralServiceResponseDto> UpdatePropertyAsync(PropertyDto propertyDto);
-        Task<IList<PropertyViewModel>> ListPropertyAsync();
+        Task<PagedResult<PropertyViewModel>> PropertyListAsync(int page,int pageSize);
         Task<Property> PropertyGetByIdAsync(int id);
         Task<GeneralServiceResponseDto> PropertyDeleteAsync(int id);
-
         Task<IList<PropertyViewModel>> PropertySearchAsync(PropertySearch search);
     }
 }

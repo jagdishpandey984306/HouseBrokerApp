@@ -1,6 +1,7 @@
 ﻿@using HouseBroker.Application.Dtos.Property;
+@using HouseBroker.Application.Models;
 
-@model List<PropertyViewModel>
+@model PagedResult<PropertyViewModel>
 @{
     ViewData["Title"] = "List";
 }
@@ -9,7 +10,7 @@
 <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-12 card p-3">
         <h2 class="text-center text-info">Property List</h2>
-        @await Html.PartialAsync("_ListPartial", Model);
+        @await Html.PartialAsync("_ListPartial", Model)
     </div>
 </div>
 

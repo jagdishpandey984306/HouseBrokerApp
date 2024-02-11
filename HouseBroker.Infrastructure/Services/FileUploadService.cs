@@ -11,17 +11,27 @@ namespace HouseBroker.Infrastructure.Services
 {
     public class FileUploadService : IFileUploadService
     {
+        #region MyRegion
         private readonly IHttpContextAccessor _httpContext;
         private readonly IHostingEnvironment _hostEnvironment;
         private readonly string _uploadFolder;
+        #endregion
 
+        #region Ctor
         public FileUploadService(IHttpContextAccessor httpContext, IHostingEnvironment hostEnvironment)
         {
             _httpContext = httpContext;
             _hostEnvironment = hostEnvironment;
             _uploadFolder = Path.Combine(_hostEnvironment.WebRootPath, "Uploads");
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// it return the image url
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         public string UploadFile(IFormFile file)
         {
             string fullUrl = string.Empty;
@@ -43,5 +53,6 @@ namespace HouseBroker.Infrastructure.Services
 
             return fullUrl;
         }
+        #endregion
     }
 }

@@ -55,7 +55,7 @@
                 <span asp-validation-for="Features" class="text-danger"></span>
             </div>
             <div class="row">
-                <div class="col-8"></div>
+                <div class="col-8"><a asp-controller="Property" asp-action="Index">Back to list</a></div>
                 <div class="col-4">
                     <input type="submit" value="@(Model.Id == 0 ? "Create" : "Update")" class="btn btn-primary btn-sm float-end" />
                 </div>

@@ -21,6 +21,7 @@ C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\
 C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.AssemblyInfoInputs.cache
 C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.AssemblyInfo.cs
 C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.sourcelink.json
 C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.dll
 C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\refint\HouseBroker.Domain.dll
 C:\Users\Jagdish Pandey\Desktop\HouseBroker\HouseBroker.Domain\obj\Debug\net7.0\HouseBroker.Domain.pdb

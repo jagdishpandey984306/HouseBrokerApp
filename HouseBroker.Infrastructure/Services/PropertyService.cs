@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using Azure;
 using HouseBroker.Application.Dtos.General;
 using HouseBroker.Application.Dtos.Property;
 using HouseBroker.Application.Interfaces;
+using HouseBroker.Application.Models;
 using HouseBroker.Domain.Entities;
 using HouseBroker.Infrastructure.Data;
+using HouseBroker.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -40,6 +44,12 @@ namespace HouseBroker.Infrastructure.Repositories
         #endregion
 
         #region Methods
+        /// <summary>
+        /// check property exists or not 
+        /// if not exists save the property othewise return message data already exists 
+        /// </summary>
+        /// <param name="propertyDto"></param>
+        /// <returns></returns>
         public async Task<GeneralServiceResponseDto> CreatePropertyAsync(PropertyDto propertyDto)
         {
             var exists = await _dbContext.Property.AnyAsync(p => p.PropertyType == propertyDto.PropertyType && p.PropertyName == propertyDto.PropertyName);
@@ -71,6 +81,12 @@ namespace HouseBroker.Infrastructure.Repositories
             }
         }
 
+        /// <summary>
+        /// check property exists or not 
+        /// if not exists update the property othewise return message data already exists 
+        /// </summary>
+        /// <param name="propertyDto"></param>
+        /// <returns></returns>
         public async Task<GeneralServiceResponseDto> UpdatePropertyAsync(PropertyDto propertyDto)
         {
             var exists = await _dbContext.Property.AnyAsync(p => p.PropertyType == propertyDto.PropertyType && p.PropertyName == propertyDto.PropertyName);
@@ -109,19 +125,35 @@ namespace HouseBroker.Infrastructure.Repositories
             }
         }
 
-        public async Task<IList<PropertyViewModel>> ListPropertyAsync()
+        /// <summary>
+        /// it return the list of property
+        /// </summary>
+        /// <param name="page">pass page as parameter</param>
+        /// <param name="pageSize">pass pagesize as parameter</param>
+        /// <returns></returns>
+        public async Task<PagedResult<PropertyViewModel>> PropertyListAsync(int page, int pageSize)
         {
-            var data = await _dbContext.Property.ToListAsync();
-            var list = _mapper.Map<IList<PropertyViewModel>>(data);
+            var data = await _dbContext.Property.GetPagedAsync(page, pageSize);
+            var list = _mapper.Map<PagedResult<PropertyViewModel>>(data);
             return list;
         }
 
+        /// <summary>
+        /// return  property details by id
+        /// </summary>
+        /// <param name="id">id as parameter</param>
+        /// <returns></returns>
         public async Task<Property> PropertyGetByIdAsync(int id)
         {
             var data = await _dbContext.Property.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
             return data;
         }
 
+        /// <summary>
+        /// delete the property by id
+        /// </summary>
+        /// <param name="id">id as parameter</param>
+        /// <returns></returns>
         public async Task<GeneralServiceResponseDto> PropertyDeleteAsync(int id)
         {
             var data = await PropertyGetByIdAsync(id);
@@ -145,6 +177,11 @@ namespace HouseBroker.Infrastructure.Repositories
             };
         }
 
+        /// <summary>
+        /// search property for user by location,price and propertytype
+        /// </summary>
+        /// <param name="search"> search as parameter </param>
+        /// <returns></returns>
         public async Task<IList<PropertyViewModel>> PropertySearchAsync(PropertySearch search)
         {
             var query = _dbContext.Property.AsQueryable();
